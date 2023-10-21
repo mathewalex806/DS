@@ -73,7 +73,7 @@ void main()
   int choice;
   while (loop == false)
   {
-    printf("\n Menu \n 1.Push \n 2.Pop \n 3.Peek \n 4.isFull \n 5.isEmpty  \n Enter your choice (1-5) \t");
+    printf("\n Menu \n 1.Push \n 2.Pop \n 3.Peek \n 4.isFull \n 5.isEmpty \n 6. Exit \n Enter your choice (1-5) \t");
     scanf("%d",&choice);
     switch (choice)
     {

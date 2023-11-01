@@ -21,10 +21,10 @@ int linear(int a[], int search, int n)
 void main()
 {
     int search,n;
-    printf("Enter the number of elements in the array");
+    printf("Enter the number of elements in the array \t");
     scanf("%d",&n);
     int a[n];
-    printf("Enter elements into the array");
+    printf("Enter elements into the array \t");
     for (int i= 0 ; i< n; i++)
     {
         scanf("%d",&a[i]);

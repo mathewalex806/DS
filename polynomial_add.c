@@ -19,7 +19,6 @@ void main()
     printf("Enter the coefficient and the degree for the first polynomial \n");
     for (int i=0; i< t1; i++)
     {
-        
         printf("Enter the degree \t");
         scanf("%d",&p1[i].deg);
         printf("Enter the coefficient \t");
@@ -37,7 +36,7 @@ void main()
     }
 
     int i= 0, j= 0, k=0;
-    while(i<t1 && j< t2)
+    while(i<t1 && j< t2) // Common terms
     {
         if (p1[i].deg == p2[j].deg)
         {
@@ -63,7 +62,7 @@ void main()
         }
     }
 
-    while (i<t1)
+    while (i<t1)    // Remaining termas
     {
         p3[k].deg = p1[i].deg;
         p3[k].coeff = p1[i].coeff;
@@ -78,7 +77,7 @@ void main()
         j++;
         k++;
     }
-    printf("THe resulting polynomial is \n");
+    printf("The resulting polynomial is \n");
     for (int i=0; i< k; i++)
     {
         printf(" %dx^%d +\t",p3[i].coeff, p3[i].deg);

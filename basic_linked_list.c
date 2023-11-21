@@ -24,9 +24,11 @@ void main ()
 
     head ->next ->next = current;
 
-
-
-    printf("%d \n",current->data);
-    printf("%d \n",head->next->next);
-    printf("%d \n",current);
+    struct node *ptr = NULL;                                // Traversing through nodes
+    ptr = head;
+    while (ptr != NULL)
+    {
+        printf("%d \n",ptr->data);
+        ptr = ptr->next;
+    }
 }

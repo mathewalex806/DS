@@ -7,65 +7,67 @@ struct node
     int data;
     struct node *next;
 };
-bool condition = false;
 
 struct node *head = NULL;
 
-void addelement(int val)
+void enqueue(int val)
 {
     if (head == NULL)
     {
         struct node *newnode = malloc(sizeof(struct node));
-        
-        newnode->data = val;
-        newnode->next= NULL;
+        newnode ->data= val;
+        newnode->next = NULL;
         head = newnode;
-        printf("First element created\n");
     }
     else
     {
         struct node *newnode = malloc(sizeof(struct node));
         newnode->data = val;
-        newnode->next = head;
-        head = newnode;
-        printf("Element add to the stack\n");
+        newnode->next = NULL;
+        struct node *ptr = head;
+        while (ptr->next=NULL)
+        {
+            ptr = ptr->next;
+        }
+        ptr->next->next = newnode;
+        printf("New element added \n");
+        
     }
 }
 
-void remove_element()
-{
-    if (head == NULL)
-    printf("Stack is empty\n");
-    else
-    {
-        struct node *ptr = head;
-        head = head->next;
-        int rem = ptr->data;
-        free(ptr);
-        printf("Freed element %d\n",rem);
-    }
-}
+void dequeue()
+{}
 
 void display()
 {
-    struct node *ptr = head;
-    while (ptr!= NULL)
+    if (head == NULL)
+    printf("Queue is empty\n");
+    else
     {
-        printf("%d\n",ptr->data);
-        ptr = ptr->next;
+        struct node *ptr = head;
+        while (ptr!=NULL)
+        {
+            printf("%d\t",ptr->data);
+            ptr = ptr->next;
+        }
+        
     }
-    
 }
+
 
 
 void main()
 {
+    bool condition = false;
+
+    while (condition == false)
+    {
     int choice;
-    printf("Program that implements stack using linked list");
+    printf("Program that implements queue using linked list");
     
     while (condition== false)
     {
-        printf("\nMenu \n1.Add element\n2.Remove element\n3.Display stack\n4.Exit\nEnter your choice:\t");
+        printf("\nMenu \n1.Add element\n2.Remove element\n3.Display queue\n4.Exit\nEnter your choice:\t");
         scanf("%d",&choice);
 
         switch (choice)
@@ -74,11 +76,11 @@ void main()
             int val;
             printf("Enter value \t:");
             scanf("%d",&val);
-            addelement(val);
+            enqueue(val);
             break;
         
         case 2:
-                remove_element();
+                dequeue();
                 break;
         case 3:
                 display();
@@ -91,6 +93,7 @@ void main()
             printf("Invalid choice. To exit, enter 4 or try again.\n");
             break;
         }
+    }
     }
     
 }

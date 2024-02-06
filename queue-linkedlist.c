@@ -53,9 +53,6 @@ void display()
         
     }
 }
-
-
-
 void main()
 {
     bool condition = false;

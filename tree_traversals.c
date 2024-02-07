@@ -60,6 +60,31 @@ void postorder(struct node* root)
     }
 }
 
+void preorder_iterative(struct node*root)
+{
+    struct node* stack[100];
+    int top = -1;
+    top = 0;
+    stack[top] = root;
+    while (top !=-1)
+    {
+        struct node *ptr = stack[top];
+        printf("%d",ptr->data);
+        top = top-1;
+        if (ptr->right)                             //Push right then left child as stack implements LIFO
+        {
+            top = top+1;
+            stack[top] = ptr->right;
+        }
+        if (ptr->left)
+        {
+            top = top+1;
+            stack[top] = ptr->left;
+        }
+    }
+    printf("\n");
+}
+
 void main()
 {
     printf("Creating a basic tree structure");
@@ -76,5 +101,7 @@ void main()
     preorder(root);
     printf("\n");
     postorder(root);
+    printf("\n");
+    preorder_iterative(root);
 
 }
